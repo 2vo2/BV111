@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
@@ -6,11 +5,8 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
-    [SerializeField] private int _score;
 
     private bool _grounded;
-
-    public int Score => _score;
     
     private void Update()
     {
@@ -39,12 +35,5 @@ public class PlayerMover : MonoBehaviour
             _grounded = false;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out Coin coin))
-        {
-            coin.gameObject.SetActive(false);
-            _score++;
-        }
-    }
+    
 }
